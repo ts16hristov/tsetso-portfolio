@@ -8,7 +8,6 @@ export const Contacts = () => {
         from_name: "",
         email: "",
         message: "",
-        to_name: "Tsvetalin",
     })
 
     const SERVICE_ID = "service_9i3zixp";
@@ -17,7 +16,7 @@ export const Contacts = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then((res) => {
+        emailjs.sendForm(import.meta.env.SERVICE_ID, import.meta.env.TEMPLATE_ID, e.target, import.meta.env.PUBLIC_KEY).then((res) => {
             alert("Message Sent!");
             setFormData({ from_name: "", email: "", message: "" });
         }).catch(() => alert("Oops! Something went wrong!"));
