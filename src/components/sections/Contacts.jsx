@@ -10,13 +10,16 @@ export const Contacts = () => {
         message: "",
     })
 
+
     const SERVICE_ID = "service_9i3zixp";
     const TEMPLATE_ID = "template_cn9unvn";
     const PUBLIC_KEY = "JL1g2IVJ_anzOhzfM";
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        emailjs.sendForm(import.meta.env.SERVICE_ID, import.meta.env.TEMPLATE_ID, e.target, import.meta.env.PUBLIC_KEY).then((res) => {
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then((res) => {
             alert("Message Sent!");
             setFormData({ from_name: "", email: "", message: "" });
         }).catch(() => alert("Oops! Something went wrong!"));
